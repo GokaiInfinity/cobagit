@@ -13,6 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/welcome','welcome');
+
+Route::view('/contact','mycontact',[
+    "pagetitle" => "Kontakku",
+    "maintitle" => "My Contact"
+
+]);
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index',
+    [
+        "pagetitle" => "Home",
+        "maintitle" => "My Personal Library"
+     ]
+    );
 });
+
+Route::get('/test', function () {
+    return view('indextest',
+    [
+        "pagetitle" => "Home",
+        "maintitle" => "My Personal Library"
+     ]
+    );
+});
+
+// Route::get('/tentangperpus', function () {
+//     return view('about');
+// });
+
+Route::view('/tentangperpus', 'about',
+ [
+    "pagetitle" => "This Page is About Me",
+    "maintitle" => "Take a Look"
+ ]
+);
